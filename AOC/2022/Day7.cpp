@@ -62,6 +62,17 @@ void DFS(Directory* dir, int wc){
 
 }
 
+void DFS_clean(Directory *dir){
+    for(int i = 0;i < dir->files.size(); i++){
+        delete dir->files[i];
+    }
+   
+    for(int i = 0; i < dir->children.size(); i++){
+        DFS_clean(dir->children[i]);
+    }
+    delete dir;
+}
+
 
 int main(){
     Directory* root = new Directory;
@@ -138,6 +149,6 @@ int main(){
     DFS(root,0);
     cout << sum_of_sums <<'\n';
     cout << to_delete <<'\n';
-    delete root;
+    DFS_clean(root);
     return 0;
 }
