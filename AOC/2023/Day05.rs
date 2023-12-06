@@ -1,38 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-#define ll long long
-
-using namespace std;
-
-struct triplet2{
-    ll start;
-    ll end;
-    ll difference;
-};
-
-struct triplet{
-    ll from;
-    ll to;
-    ll range;
-};
-
-bool sortT(triplet A, triplet B){
-    return A.from < B.from;
-}
-
-void part1(){
-    string tmp;
-    cin >> tmp;
-    int n;
-    ll x;
-    cin >> n;
-    vector<ll> seeds;
-    vector<vector<triplet>> phases(7);
-    vector<vector<triplet2>> changes(7);
-    for(int i = 0; i < n; i++){
-        cin >> x;use std::fs::File;
+use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 
@@ -96,7 +62,7 @@ fn part1(lines: &Vec<String>) {
     }
     let mut min_val = 418461546212222u64;
     for i in 0..seeds.len() {
-        //println!("seed - {}", seeds[i]);
+//println!("seed - {}", seeds[i]);
         for j in 0..phases.len() {
             for k in 0..phases[j].len() {
                 if seeds[i] >= phases[j][k].from && (seeds[i] < phases[j][k].from + phases[j][k].range) {
@@ -104,7 +70,7 @@ fn part1(lines: &Vec<String>) {
                     break;
                 }
             }
-            //println!("{} - {}", db[j], seeds[i]);
+//println!("{} - {}", db[j], seeds[i]);
         }
         if min_val > seeds[i] {
             min_val = seeds[i];
@@ -200,53 +166,11 @@ fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
 
 
 fn main() {
-    let day = "DAY4";
+    let day = "DAY5";
     let lines = lines_from_file("src/test.txt");
 
     println!("{} - {}", day, "PART 1");
     part1(&lines);
     println!("{} - {}", day, "PART 2");
     part2(&lines);
-}
-        seeds.push_back(x);
-    }
-    for(int i = 0; i < 7; i++){
-        cin >> tmp;
-        cin >> tmp;
-        cin >> n;
-        for(int j = 0; j < n; j++){
-            triplet to_put;
-            cin >> to_put.from;
-            cin >> to_put.to;
-            cin >> to_put.range;
-            phases[i].push_back(to_put);
-        }
-        stable_sort(phases[i].begin(), phases[i].end(), sortT);
-    }
-    for(int i = 0; i < 7; i++){
-        
-    }
-    /*for (int i = 0; i < 7; i++){
-        for(int j = 0; j < phases[i].size(); j++){
-            cout << phases[i][j].from << " " << phases[i][j].to << " " << phases[i][j].range << '\n';
-        }
-    }*/
-}
-
-void part2(){
-
-
-    
-}
-
-
-
-int main(){
-    
-    cout << "Day 5 - Part 1\n";
-    part1();
-    cout << "Day 5 - Part 2\n";
-    part2();
-
-    return 0;
 }
