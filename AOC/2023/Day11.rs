@@ -152,7 +152,7 @@ fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
 
 
 fn main() {
-    let day = "DAY10";
+    let day = "DAY11";
     let lines = lines_from_file("src/test.txt");
 
     println!("{} - {}", day, "PART 1");
